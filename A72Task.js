@@ -99857,7 +99857,7 @@ setTimeout(function () {
               autoFeel.style.backgroundColor = "rgb(24,196,15)";
               $zone.placeholder = dataArray[i][k][item]["zone"]; //"value" changed to "placeholder"
               $access.placeholder = dataArray[i][k][item]["access"]; //"value" changed to "placeholder"
-              $taskGroup.placeholder = dataArray[i][k][item]["task_group"]; //"value" changed to "placeholder"
+              $taskGroup.value = dataArray[i][k][item]["task_group"]; //"value" changed to "placeholder"
               zone = dataArray[i][k][item]["zone"];
               access = dataArray[i][k][item]["access"];
               ata = dataArray[i][k][item]["ata"];

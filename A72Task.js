@@ -99754,7 +99754,7 @@ let dataArray = [
     ],
   ], //KAW-685 (2024.07 - 2024.09)
 ];
-//=================== ARRAY (GLOBAL) FINISH ==================//
+//=================== ARRAY (GLOBAL) FINISH =================//
 
 const ammRev = "REV.008 JUL 01/24";
 
@@ -99818,7 +99818,7 @@ setTimeout(function () {
   let cleanedActiontaken = `${$description} WAS PERFORMED IAW: ${$ref} ${ammRev}. ZONE CLEAR. PANELS CLOSED.CHECK IS OK`;
   let actionTaken = cleanedActiontaken.replace(/[\n\r\t]/g, "");
 
-  $actionTaken.value = actionTaken;
+  $actionTaken.placeholder = actionTaken; //"value" changed to "placeholder"
 
   const url = window.location.href;
   const onlyNums = url.replace(/\D/g, "");
@@ -99833,7 +99833,6 @@ setTimeout(function () {
   if (taskRefId != 0) {
     autoFeel.textContent = "DATA ABSENT";
     autoFeel.style.backgroundColor = "rgb(255, 0, 0)";
-    // autoFeel.append(autoFeelBtn);
     let link = "https://portal.fleetair.eu/portal/api/work-order-task/" + urlId;
 
     async function linkResponse() {
@@ -99841,9 +99840,7 @@ setTimeout(function () {
         headers: {
           accept: "application/json",
           "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-          authorization:
-            // "Bearer 6767|Um37n7QkekGMkOO7b8YwROGqvz6dNDfvQ8KN27Di",
-            apiKey,
+          authorization: apiKey,
           "content-type": "application/json",
         },
       });
@@ -99858,9 +99855,9 @@ setTimeout(function () {
               autoFeel.textContent = "";
               autoFeel.append(autoFeelBtn);
               autoFeel.style.backgroundColor = "rgb(24,196,15)";
-              $zone.value = dataArray[i][k][item]["zone"];
-              $access.value = dataArray[i][k][item]["access"];
-              $taskGroup.value = dataArray[i][k][item]["task_group"];
+              $zone.placeholder = dataArray[i][k][item]["zone"]; //"value" changed to "placeholder"
+              $access.placeholder = dataArray[i][k][item]["access"]; //"value" changed to "placeholder"
+              $taskGroup.placeholder = dataArray[i][k][item]["task_group"]; //"value" changed to "placeholder"
               zone = dataArray[i][k][item]["zone"];
               access = dataArray[i][k][item]["access"];
               ata = dataArray[i][k][item]["ata"];

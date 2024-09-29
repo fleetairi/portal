@@ -1130,10 +1130,11 @@ setTimeout(function () {
         dataArray[item]["fin2"] == $searchField ||
         dataArray[item]["description"] == $searchField
       ) {
+        let dataFound = dataArray[item]["description"];
         let autoFeel = document.querySelectorAll(".css-jn6ekt")[2];
         let autoFeelBtn = document.createElement("button");
         autoFeel.textContent = "";
-        autoFeelBtn.textContent = "RAI DATA OK";
+        autoFeelBtn.textContent = dataFound; //"DATA FOUND" replaced to dataFound
         autoFeel.append(autoFeelBtn);
         autoFeel.style.backgroundColor = "rgb(24,196,15)";
 

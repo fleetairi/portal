@@ -99816,7 +99816,7 @@ setTimeout(function () {
   }
 
   let cleanedActiontaken = `${$description} WAS PERFORMED IAW: ${$ref} ${ammRev}. ZONE CLEAR. PANELS CLOSED.CHECK IS OK`;
-  let actionTaken = cleanedActiontaken.replace(/[\n\r\t]/g, "");
+  let actionTaken = cleanedActiontaken.replace(/[\n\r\t\'\"]/g, "");
 
   $actionTaken.placeholder = actionTaken; //"value" changed to "placeholder"
 
@@ -99935,27 +99935,27 @@ setTimeout(function () {
     console.log("DATA NOT FOUND");
     atField.style.backgroundColor = "rgb(255, 0, 0)";
 
-    document.querySelectorAll(".css-jn6ekt")[2].onclick = function () {
-      let link =
-        "https://portal.fleetair.eu/portal/api/work-order-task/" + urlId;
+    // document.querySelectorAll(".css-jn6ekt")[2].onclick = function () {
+    //   let link =
+    //     "https://portal.fleetair.eu/portal/api/work-order-task/" + urlId;
 
-      async function getResponse() {
-        let response = await fetch(link, {
-          headers: {
-            accept: "application/json",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            authorization: apiKey,
-            "content-type": "application/json",
-          },
-          referrer: url,
-          referrerPolicy: "strict-origin-when-cross-origin",
-          body: `{"performed_by":"289","inspection_by":"205","closed_by":"205","action_taken":"${actionTaken}"}`,
-          method: "PATCH",
-          mode: "cors",
-          credentials: "include",
-        });
-      }
-      getResponse();
-    };
+    //   async function getResponse() {
+    //     let response = await fetch(link, {
+    //       headers: {
+    //         accept: "application/json",
+    //         "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    //         authorization: apiKey,
+    //         "content-type": "application/json",
+    //       },
+    //       referrer: url,
+    //       referrerPolicy: "strict-origin-when-cross-origin",
+    //       body: `{"performed_by":"289","inspection_by":"205","closed_by":"205","action_taken":"${actionTaken}"}`,
+    //       method: "PATCH",
+    //       mode: "cors",
+    //       credentials: "include",
+    //     });
+    //   }
+    //   getResponse();
+    // };
   }
 }, 8000);

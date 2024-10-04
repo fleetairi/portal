@@ -99816,7 +99816,7 @@ setTimeout(function () {
   }
 
   let cleanedActiontaken = `${$description} WAS PERFORMED IAW: ${$ref} ${ammRev}. ZONE CLEAR. PANELS CLOSED.CHECK IS OK`;
-  let actionTaken = cleanedActiontaken.replace(/[\n\r\t]/g, "");
+  let actionTaken = cleanedActiontaken.replace(/[\n\r\t\' "]/g, "");
 
   $actionTaken.placeholder = actionTaken;
 

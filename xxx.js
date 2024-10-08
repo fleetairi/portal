@@ -99542,7 +99542,9 @@ let dataArray = [
         pn: "ATR72-202 HA-KAW",
         sn: "313",
         action_taken:
-          'TASK  OPERATIONAL TEST OF "PROPELLER BRAKE  WARNING WAS PERFORMED.IAW MP: ATR-A-61-51-XX-07ZZZ-320Z-A "+ ammRev +".ZONE CLEAR, PANELS CLOSED.CHECK IS OK.',
+          "OPERATIONAL TEST OF 'PROPELLER BRAKE'  WARNING WAS PERFORMED.IAW MP: ATR-A-61-51-XX-07ZZZ-320Z-A " +
+          ammRev +
+          ".ZONE CLEAR, PANELS CLOSED.CHECK IS OK.",
         performed: 1,
         inspected: 1,
         closed: 1,

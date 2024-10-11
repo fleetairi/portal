@@ -29079,7 +29079,7 @@ let dataArray = [
 
 const ammRev = "REV.010 JUL 01/24";
 
-const apiKey = "Bearer 8261|08Cjd8IUgn6TdNDS3nn44ZjpNtvgOOi54BXCVMgc";
+const apiKey = "Bearer 9226|RWMYiS5NVekX5GigTP0OALmLqi9J1giapSh9qewf";
 
 const currentDate = new Date();
 const roundMinutes = Math.round(currentDate.getMinutes() / 15) * 15;

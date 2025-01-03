@@ -1,3 +1,4 @@
+const ammRev = "REV.009 JAN 01/25";
 //=================== ARRAY START ===================//
 let dataArray = [
   [
@@ -99755,8 +99756,6 @@ let dataArray = [
   ], //KAW-685 (2024.07 - 2024.09)
 ];
 //=================== ARRAY FINISH =================//
-
-const ammRev = "REV.008 JUL 01/24";
 
 const apiKey = "Bearer 8261|08Cjd8IUgn6TdNDS3nn44ZjpNtvgOOi54BXCVMgc";
 

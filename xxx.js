@@ -1,4 +1,4 @@
-const ammRev = "REV.008 JUL 01/24";
+const ammRev = "REV.009 JAN 01/25";
 //=================== ARRAY START ===================//
 let dataArray = [
   [
@@ -99900,6 +99900,22 @@ let dataArray = [
   ], // MissedTasks
 ];
 //=================== ARRAY FINISH =================//
+
+//=================== AIRCRAFT ARRAY START =================//
+const aircraftArr = [
+  { id: 7, pn: "ATR 42-320 HA-KAN", msn: 121 },
+  { id: 8, pn: "ATR 42-320 HA-KAM", msn: 66 },
+  { id: 9, pn: "ATR 72-202 HA-KAO", msn: 183 },
+  { id: 10, pn: "ATR 72-202 HA-KAT", msn: 108 },
+  { id: 11, pn: "ATR 72-201 HA-KAU", msn: 198 },
+  { id: 13, pn: "ATR 72-201 HA-KAZ", msn: 195 },
+  { id: 14, pn: "ATR 72-201 HA-KAX", msn: 381 },
+  { id: 15, pn: "ATR 72-202 HA-KAW", msn: 313 },
+  { id: 16, pn: "ATR 72-201 HA-KAY", msn: 227 },
+  { id: 17, pn: "ATR 72-202 HA-KAI", msn: 265 },
+];
+//=================== AIRCRAFT ARRAY FINISH =================//
+
 const apiKey = "Bearer 8261|08Cjd8IUgn6TdNDS3nn44ZjpNtvgOOi54BXCVMgc";
 
 const currentDate = new Date();
@@ -99913,6 +99929,20 @@ const hours = String(currentDate.getHours()).padStart(2, "0");
 const minutes = String(currentDate.getMinutes()).padStart(2, "0");
 
 const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+//=========== ADDED START ===========//
+const currentDateP = new Date();
+const roundMinutesP = Math.round(currentDateP.getMinutes() / 15) * 0;
+currentDateP.setMinutes(roundMinutesP);
+
+const yearP = currentDateP.getFullYear();
+const monthP = String(currentDateP.getMonth() + 1).padStart(2, "0"); // Месяцы начинаются с 0
+const dayP = String(currentDateP.getDate()).padStart(2, "0");
+const hoursP = String(currentDateP.getHours()).padStart(2, "0");
+const minutesP = String(currentDateP.getMinutes()).padStart(2, "0");
+
+const formattedDateP = `${yearP}-${monthP}-${dayP} ${hoursP}:${minutesP}`;
+//=========== ADDED FINISH ===========//
 
 setTimeout(function () {
   let atField = document.querySelectorAll(".css-jn6ekt")[2];
@@ -99930,6 +99960,8 @@ setTimeout(function () {
   let $interval, interval;
   let $access, access;
   let $taskGroup, taskGroup;
+  let $pn, pn;
+  let $sn, sn;
   let man_hour;
   let performedBy;
   let inspectedBy;
@@ -99954,6 +99986,10 @@ setTimeout(function () {
       $access = item;
     } else if ("task_group" == item.name) {
       $taskGroup = item;
+    } else if ("pn" == item.name) {
+      $pn = item;
+    } else if ("sn" == item.name) {
+      $sn = item;
     }
   }
 
@@ -99982,6 +100018,26 @@ setTimeout(function () {
         },
       });
       let content = await response.json();
+
+      for (let item of aircraftArr) {
+        if (item.id == content.aircraft_id) {
+          if (content.pn == null) {
+            $pn.placeholder = item.pn;
+            pn = item.pn;
+          } else {
+            $pn.placeholder = content.pn;
+            pn = content.pn;
+          }
+
+          if (content.sn == null) {
+            $sn.placeholder = item.msn;
+            sn = item.msn;
+          } else {
+            $sn.placeholder = content.msn;
+            sn = content.msn;
+          }
+        }
+      }
 
       for (let i = 0; i < dataArray.length; i++) {
         for (let k = 0; k < dataArray[i].length; k++) {
@@ -100024,7 +100080,7 @@ setTimeout(function () {
           },
           referrer: url,
           referrerPolicy: "strict-origin-when-cross-origin",
-          body: `{"performed_at":"${formattedDate}","inspection_at":"${formattedDate}","closed_at":"${formattedDate}","performed_by":"${performedBy}","inspection_by":"${inspectedBy}","closed_by":"${closedBy}","action_taken":"${actionTaken}","ref":"${ref}","zone":"${zone}","access":"${access}","ata":${ata},"task_group":"MPD","man_hour_real_job":"${man_hour}"}`,
+          body: `{"performed_at":"${formattedDateP}","inspection_at":"${formattedDate}","closed_at":"${formattedDate}","performed_by":"${performedBy}","inspection_by":"${inspectedBy}","closed_by":"${closedBy}","action_taken":"${actionTaken}","ref":"${ref}","zone":"${zone}","access":"${access}","ata":${ata},"task_group":"MPD","man_hour_real_job":"${man_hour}"}`,
           method: "PATCH",
           mode: "cors",
           credentials: "include",

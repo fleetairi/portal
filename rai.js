@@ -1,4 +1,4 @@
-const rev = "REV.008 JUL 01/24."; //ATR-72
+const rev = "REV.009 JAN 01/25."; //ATR-72
 
 let dataArray = [
   {
@@ -1064,8 +1064,6 @@ let dataArray = [
   // },
 ];
 //DATABASE FROM 2024-09-21
-
-// const rev = "REV.008 JUL 01/24."; //ATR-72
 
 const apiKey = "Bearer 8261|08Cjd8IUgn6TdNDS3nn44ZjpNtvgOOi54BXCVMgc";
 

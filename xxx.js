@@ -104555,7 +104555,9 @@ let dataArray = [
         pn: "ATR72-201 HA-KAZ",
         sn: "195",
         action_taken:
-          "GENERAL VISUAL INSPECTION OF : - COMBUSTOR AND TURBINE SECTION  - REAR MOUNTING FRAMEWORK ZONE - NACELLE REAR SECTION AND EXHAUST INCLUDING LEAK DETECTION AND CASING CONNECTIONS (EWIS)  WAS PERFORMED  IAW ATR-A-20-52-11-00001-281A-A / ATR-A-20-52-11-01001-281A-A REV 008 JUL 01/2024. ZONE CLEAR. PANELS CLOSED. CHECK IS OK",
+          "GENERAL VISUAL INSPECTION OF : - COMBUSTOR AND TURBINE SECTION  - REAR MOUNTING FRAMEWORK ZONE - NACELLE REAR SECTION AND EXHAUST INCLUDING LEAK DETECTION AND CASING CONNECTIONS (EWIS)  WAS PERFORMED  IAW ATR-A-20-52-11-00001-281A-A / ATR-A-20-52-11-01001-281A-A " +
+          ammRev +
+          " ZONE CLEAR. PANELS CLOSED. CHECK IS OK",
         performed: 1,
         inspected: 1,
         closed: 1,
@@ -104590,7 +104592,7 @@ let dataArray = [
         action_taken:
           "GENERAL VISUAL INSPECTION OF:- COMBUSTOR AND TURBINE SECTION - REAR MOUNTING FRAMEWORK ZONE- NACELLE REAR SECTION AND EXHAUSTINCLUDING LEAK DETECTION AND CASING CONNECTIONS (EWIS) WAS PERFORMED  IAW: ESP ATR-A-20-52-11-01ZZZ-042Z-A ESP ATR-A-20-55-XX-01ZZZ-042Z-A " +
           ammRev +
-          "   CLEAR. PANELS CLOSED. CHECK IS OK",
+          " CLEAR. PANELS CLOSED. CHECK IS OK",
         performed: 1,
         inspected: 1,
         closed: 1,
@@ -109216,16 +109218,16 @@ let dataArray = [
 
 //=================== AIRCRAFT ARRAY START =================//
 const aircraftArr = [
-  { id: 7, pn: "ATR 42-320 HA-KAN", msn: 121 },
-  { id: 8, pn: "ATR 42-320 HA-KAM", msn: 66 },
-  { id: 9, pn: "ATR 72-202 HA-KAO", msn: 183 },
-  { id: 10, pn: "ATR 72-202 HA-KAT", msn: 108 },
-  { id: 11, pn: "ATR 72-201 HA-KAU", msn: 198 },
-  { id: 13, pn: "ATR 72-201 HA-KAZ", msn: 195 },
-  { id: 14, pn: "ATR 72-201 HA-KAX", msn: 381 },
-  { id: 15, pn: "ATR 72-202 HA-KAW", msn: 313 },
-  { id: 16, pn: "ATR 72-201 HA-KAY", msn: 227 },
-  { id: 17, pn: "ATR 72-202 HA-KAI", msn: 265 },
+  { id: 7, pn: "ATR 42-320 HA-KAN", sn: 121 },
+  { id: 8, pn: "ATR 42-320 HA-KAM", sn: 66 },
+  { id: 9, pn: "ATR 72-202 HA-KAO", sn: 183 },
+  { id: 10, pn: "ATR 72-202 HA-KAT", sn: 108 },
+  { id: 11, pn: "ATR 72-201 HA-KAU", sn: 198 },
+  { id: 13, pn: "ATR 72-201 HA-KAZ", sn: 195 },
+  { id: 14, pn: "ATR 72-201 HA-KAX", sn: 381 },
+  { id: 15, pn: "ATR 72-202 HA-KAW", sn: 313 },
+  { id: 16, pn: "ATR 72-201 HA-KAY", sn: 227 },
+  { id: 17, pn: "ATR 72-202 HA-KAI", sn: 265 },
 ];
 //=================== AIRCRAFT ARRAY FINISH =================//
 
@@ -109343,10 +109345,10 @@ setTimeout(function () {
           }
 
           if (content.sn == null) {
-            $sn.placeholder = item.msn;
-            sn = item.msn;
+            $sn.placeholder = item.sn;
+            sn = item.sn;
           } else {
-            $sn.placeholder = content.msn;
+            $sn.placeholder = content.sn;
             sn = content.sn;
           }
         }

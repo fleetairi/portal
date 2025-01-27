@@ -109218,16 +109218,16 @@ let dataArray = [
 
 //=================== AIRCRAFT ARRAY START =================//
 const aircraftArr = [
-  { id: 7, pn: "ATR 42-320 HA-KAN", sn: 121 },
-  { id: 8, pn: "ATR 42-320 HA-KAM", sn: 66 },
-  { id: 9, pn: "ATR 72-202 HA-KAO", sn: 183 },
-  { id: 10, pn: "ATR 72-202 HA-KAT", sn: 108 },
-  { id: 11, pn: "ATR 72-201 HA-KAU", sn: 198 },
-  { id: 13, pn: "ATR 72-201 HA-KAZ", sn: 195 },
-  { id: 14, pn: "ATR 72-201 HA-KAX", sn: 381 },
-  { id: 15, pn: "ATR 72-202 HA-KAW", sn: 313 },
-  { id: 16, pn: "ATR 72-201 HA-KAY", sn: 227 },
-  { id: 17, pn: "ATR 72-202 HA-KAI", sn: 265 },
+  { id: 7, pn: "ATR 42-320 HA-KAN", msn: 121 },
+  { id: 8, pn: "ATR 42-320 HA-KAM", msn: 66 },
+  { id: 9, pn: "ATR 72-202 HA-KAO", msn: 183 },
+  { id: 10, pn: "ATR 72-202 HA-KAT", msn: 108 },
+  { id: 11, pn: "ATR 72-201 HA-KAU", msn: 198 },
+  { id: 13, pn: "ATR 72-201 HA-KAZ", msn: 195 },
+  { id: 14, pn: "ATR 72-201 HA-KAX", msn: 381 },
+  { id: 15, pn: "ATR 72-202 HA-KAW", msn: 313 },
+  { id: 16, pn: "ATR 72-201 HA-KAY", msn: 227 },
+  { id: 17, pn: "ATR 72-202 HA-KAI", msn: 265 },
 ];
 //=================== AIRCRAFT ARRAY FINISH =================//
 
@@ -109336,7 +109336,7 @@ setTimeout(function () {
 
       for (let item of aircraftArr) {
         if (item.id == content.aircraft_id) {
-          if (content.pn == null) {
+          if (content.pn == null || content.pn == "") {
             $pn.placeholder = item.pn;
             pn = item.pn;
           } else {
@@ -109344,9 +109344,9 @@ setTimeout(function () {
             pn = content.pn;
           }
 
-          if (content.sn == null) {
-            $sn.placeholder = item.sn;
-            sn = item.sn;
+          if (content.sn == null || content.sn == "") {
+            $sn.placeholder = item.msn;
+            sn = item.msn;
           } else {
             $sn.placeholder = content.sn;
             sn = content.sn;

@@ -194,7 +194,7 @@ setTimeout(function () {
           },
           referrer: url,
           referrerPolicy: "strict-origin-when-cross-origin",
-          body: body,
+          body: null,
           method: "PATCH",
           mode: "cors",
           credentials: "include",
